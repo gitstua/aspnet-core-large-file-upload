@@ -31,17 +31,17 @@ jobs:
     #- name: Test
     #  run: dotnet test --no-restore --verbosity normal
    #   working-directory: ./SampleApp/
-    - name: Azure Login
-      uses: Azure/login@v1.1
-      with:
+ #   - name: Azure Login
+  #    uses: Azure/login@v1.1
+   #   with:
         # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
-        creds: ${{secrets.AZURE_CREDENTIALS}}
-        # Set this value to true to enable Azure PowerShell Login in addition to Az CLI login
-        enable-AzPSSession: false # optional
+    #    creds: ${{secrets.AZURE_CREDENTIALS}}
+     #   # Set this value to true to enable Azure PowerShell Login in addition to Az CLI login
+      #  enable-AzPSSession: false # optional
     
-    - name: show azure web apps
-      run: |
-        az webapp list -o table
+  #  - name: show azure web apps
+   #   run: |
+    #    az webapp list -o table
     
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v2
