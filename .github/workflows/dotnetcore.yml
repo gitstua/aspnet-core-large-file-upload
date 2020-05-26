@@ -17,10 +17,11 @@ jobs:
       run: |
         pwd
         ls -l
+    
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 2.0.9
+        dotnet-version: 2.2.104
     - name: Install dependencies
       run: dotnet restore
       working-directory: ./SampleApp/
