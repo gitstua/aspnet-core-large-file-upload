@@ -22,12 +22,14 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install dependencies
-      run: dotnet restore .\SampleApp\
+      run: dotnet restore
+      working-directory: ./SampleApp/
     - name: Build
-      run: dotnet build .\SampleApp\ --configuration Release --no-restore 
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
-
+      run: dotnet build  --configuration Release --no-restore 
+      working-directory: ./SampleApp/
+    #- name: Test
+    #  run: dotnet test --no-restore --verbosity normal
+   #   working-directory: ./SampleApp/
     - name: Azure Login
       uses: Azure/login@v1.1
       with:
@@ -48,5 +50,5 @@ jobs:
         # Applies to Web App only: Publish profile (*.publishsettings) file contents with Web Deploy secrets
         publish-profile: ${{secrets.PUBLISH_PROFILE}} # optional
         # Applies to Web App only: Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
-        package: . # optional, default is .
+        package: ./SampleApp/ # optional, default is .
       
