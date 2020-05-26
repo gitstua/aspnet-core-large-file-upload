@@ -42,7 +42,7 @@ jobs:
         # Name of the Azure Web App
         app-name: github-example
         # Applies to Web App only: Publish profile (*.publishsettings) file contents with Web Deploy secrets
-        publish-profile: ${{secret.PUBLISH_PROFILE}} # optional
+        publish-profile: ${{secrets.PUBLISH_PROFILE}} # optional
         # Applies to Web App only: Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
         package: . # optional, default is .
       
